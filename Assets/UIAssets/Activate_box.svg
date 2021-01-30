@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 65.5 65.5"
+   version="1.1"
+   sodipodi:docname="Activate_box.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2183"
+     inkscape:window-height="1464"
+     id="namedview11"
+     showgrid="false"
+     inkscape:zoom="15.389313"
+     inkscape:cx="32.75"
+     inkscape:cy="32.75"
+     inkscape:window-x="499"
+     inkscape:window-y="384"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#231f20;fill-rule:evenodd;}.cls-2{fill:#fff;}</style>
+  </defs>
+  <path
+     class="cls-1"
+     d="M1042,344.65h45.5a10,10,0,0,1,10,10v45.5a10,10,0,0,1-10,10H1042a10,10,0,0,1-10-10v-45.5A10,10,0,0,1,1042,344.65Z"
+     transform="translate(-1032 -344.65)"
+     id="path6"
+     style="fill:#ffffff" />
+  <path
+     style="fill:#000000"
+     class="cls-2"
+     d="M1057.42,390.48V364.33h14.66V367h-11.62v8.89h10.1v2.7h-10.1v9.16h11.62v2.7Z"
+     transform="translate(-1032 -344.65)"
+     id="path8" />
+</svg>
