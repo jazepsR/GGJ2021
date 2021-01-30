@@ -1,23 +1,10 @@
-using GameSystem.Dto;
-using UnityEngine;
-
 namespace GameSystem.Components
 {
-    public class GainSanityCollider : MonoBehaviour
+    public class GainSanityCollider : SanityCollider
     {
-        [SerializeField] private float amount;
-        
-        private void OnCollisionEnter(Collision other)
+        protected override void OnPlayerCollide()
         {
-            if (Utility.IsPlayerCollision(other))
-            {
-                GameEvents.GainSanity(SanityGain);
-            }
+            GameEvents.GainSanity(SanityAmount);
         }
-
-        private SanityDto SanityGain => new SanityDto
-        {
-            amount = amount
-        };
     }
 }

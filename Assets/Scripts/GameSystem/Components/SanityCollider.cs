@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameSystem.Components
 {
-    internal abstract class SanityCollider : MonoBehaviour
+    public abstract class SanityCollider : MonoBehaviour
     {
         [SerializeField] private float amount;
         [SerializeField] private bool destroyOnCollide;
@@ -22,7 +22,7 @@ namespace GameSystem.Components
 
         protected abstract void OnPlayerCollide();
 
-        private SanityDto SanityGain => new SanityDto
+        protected SanityDto SanityAmount => new SanityDto
         {
             amount = amount
         };

@@ -4,9 +4,11 @@ namespace GameSystem
 {
     internal static class Utility
     {
+        private const string PlayerTag = "player";
+        
         internal static bool IsPlayerCollision(Collision other)
         {
-            return true;
+            return other.gameObject.CompareTag(PlayerTag);
         }
     }
 }
