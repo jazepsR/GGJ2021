@@ -3,16 +3,18 @@ using GameSystem.Dto;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace GameSystem.Components
 {
     public class GameManagerComponent : MonoBehaviour
     {
-        [SerializeField] private float startingSanity;
+        [FormerlySerializedAs("startingSanity")] [SerializeField] private float maxSanity;
         [SerializeField] private string gameSceneName;
 
         private void Awake()
         {
+            PlayerStats.MaxSanity = maxSanity;
             DontDestroyOnLoad(this);
             SetupPlayingLogic();
         }
@@ -26,7 +28,7 @@ namespace GameSystem.Components
             
             GameStateManager.CurrentGameState
                 .Where(state => state == GameState.Playing)
-                .Subscribe(_ => PlayerStats.SanityUpdater.Value = startingSanity)
+                .Subscribe(_ => PlayerStats.SanityUpdater.Value = maxSanity)
                 .AddTo(this);
 
             GameEvents.SanityLowered
@@ -42,7 +44,7 @@ namespace GameSystem.Components
 
             GameEvents.SanityGained
                 .IsPlaying()
-                .Subscribe(dto => PlayerStats.SanityUpdater.Value = Math.Min(startingSanity, PlayerStats.CurrentSanity.Value + dto.amount))
+                .Subscribe(dto => PlayerStats.SanityUpdater.Value = Math.Min(maxSanity, PlayerStats.CurrentSanity.Value + dto.amount))
                 .AddTo(this);
 
             GameStateManager.PlayerDiedAnimationCompleted

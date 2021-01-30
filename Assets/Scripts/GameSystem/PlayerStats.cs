@@ -1,4 +1,5 @@
 using UniRx;
+using UnityEngine;
 
 namespace GameSystem
 {
@@ -7,5 +8,6 @@ namespace GameSystem
         internal static readonly IReactiveProperty<float> SanityUpdater = new ReactiveProperty<float>(0f);
 
         public static IReadOnlyReactiveProperty<float> CurrentSanity => SanityUpdater;
+        public static float MaxSanity = 0f;
     }
 }
