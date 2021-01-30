@@ -8,7 +8,8 @@ namespace Interactables.Components
         [SerializeField] private InteractableCollider interactableCollider;
         [SerializeField] private GameObject objectToSpawn;
         [SerializeField] private float zForwardPosition;
-        [SerializeField] private float yLeftPosition;
+        [SerializeField] private float xLeftPosition;
+        [SerializeField] private float yDownPosition;
         
         private void Awake()
         {
@@ -20,7 +21,9 @@ namespace Interactables.Components
         private void ActiveObject()
         {
             Instantiate(objectToSpawn, transform.position + 
-                                       (Vector3.forward * zForwardPosition) + (Vector3.left * yLeftPosition), 
+                                       (Vector3.forward * zForwardPosition) + 
+                                       (Vector3.left * xLeftPosition) + 
+                                       (Vector3.down * yDownPosition), 
                 Quaternion.identity);
             Destroy(gameObject);
         }

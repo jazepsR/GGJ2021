@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 namespace GameSystem.Components
@@ -5,19 +7,61 @@ namespace GameSystem.Components
     public class Treasure : MonoBehaviour
     {
         [SerializeField] private LoseSanityInterval interval;
+        
         [SerializeField] private float maxLoss;
         [SerializeField] private float minLoss;
         [SerializeField] private long minIntervalMs;
         [SerializeField] private long maxIntervalMs;
         [SerializeField] private float maxDistance = 1;
 
-        [SerializeField] private float speed = 0.1f;
+        [SerializeField] private float moveToPlayerSpeed = 2f;
+
+        [SerializeField] private float startUpSpeed = 3;
+        [SerializeField] private float zPositionEnd = 4;
+        [SerializeField] private float yPositionEnd = 7;
+
+        [SerializeField] private double delayToStart = 2;
+
+        private bool _finishedStartup;
+        private Vector3 _targetStartPosition;
+        private bool _shouldFollow;
+
+        private void Start()
+        {
+            Transform transform1;
+            (transform1 = transform).Rotate(90, 0, 0);
+            var position = transform1.position;
+            _targetStartPosition = position + (Vector3.back * zPositionEnd) + (Vector3.up * yPositionEnd);
+        }
 
         private void Update()
         {
             CalculateSanityDamage();
-
-            MoveToPlayer();
+            
+            if (_finishedStartup)
+            {
+                if (_shouldFollow)
+                {
+                    MoveToPlayer();
+                }
+            }
+            else
+            {
+                interval.shouldLowerSanity = false;
+                var position = transform.position;
+                transform.position = Vector3.MoveTowards(position, _targetStartPosition,
+                    Time.deltaTime * startUpSpeed);
+                
+                if (!(Vector3.Distance(transform.position, _targetStartPosition) <= 0.00001f)) return;
+                _finishedStartup = true;
+                Observable.Return(Unit.Default).Delay(TimeSpan.FromSeconds(delayToStart))
+                    .Take(1)
+                    .Subscribe(_ =>
+                    {
+                        interval.shouldLowerSanity = true;
+                        _shouldFollow = true;
+                    }).AddTo(this);
+            }
         }
 
         private void MoveToPlayer()
@@ -25,7 +69,7 @@ namespace GameSystem.Components
             var playerPosition = GameStateManager.CurrentPlayer.transform.position;
             var position = transform.position;
             var target = new Vector3(playerPosition.x, playerPosition.y, position.z);
-            transform.position = Vector3.MoveTowards(position, target, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(position, target, moveToPlayerSpeed * Time.deltaTime);
         }
 
         private void CalculateSanityDamage()

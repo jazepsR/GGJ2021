@@ -2,6 +2,14 @@ namespace GameSystem.Components
 {
     public class LoseSanityInterval : SanityInterval
     {
-        protected override void TriggerSanity() => GameEvents.LowerSanity(SanityAmount);
+        public bool shouldLowerSanity = true;
+        
+        protected override void TriggerSanity()
+        {
+            if (shouldLowerSanity)
+            {
+                GameEvents.LowerSanity(SanityAmount);
+            }
+        } 
     }
 }
