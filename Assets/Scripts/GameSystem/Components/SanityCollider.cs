@@ -1,3 +1,4 @@
+using System;
 using GameSystem.Dto;
 using UnityEngine;
 
@@ -7,7 +8,19 @@ namespace GameSystem.Components
     {
         [SerializeField] private float amount;
         [SerializeField] private bool destroyOnCollide;
-        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.IsPlayerCollision()) return;
+            
+            OnPlayerCollide();
+            
+            if (destroyOnCollide)
+            {
+                Destroy(this);
+            }
+        }
+
         private void OnCollisionEnter(Collision other)
         {
             if (!other.IsPlayerCollision()) return;
