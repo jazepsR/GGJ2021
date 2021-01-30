@@ -1,10 +1,12 @@
+using System;
+using GameSystem.Dto;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameSystem
+namespace GameSystem.Components
 {
-    public class GameManager : MonoBehaviour
+    public class GameManagerComponent : MonoBehaviour
     {
         [SerializeField] private float startingSanity;
         [SerializeField] private string gameSceneName;
@@ -32,9 +34,15 @@ namespace GameSystem
                 .Subscribe(dto => PlayerStats.SanityUpdater.Value -= dto.amount)
                 .AddTo(this);
 
+            PlayerStats.CurrentSanity
+                .IsPlaying()
+                .Where(value => value <= 0)
+                .Subscribe(_ => GameEvents.KillPlayer(new PlayerDeathDto()))
+                .AddTo(this);
+
             GameEvents.SanityGained
                 .IsPlaying()
-                .Subscribe(dto => PlayerStats.SanityUpdater.Value += dto.amount)
+                .Subscribe(dto => PlayerStats.SanityUpdater.Value = Math.Min(startingSanity, PlayerStats.CurrentSanity.Value + dto.amount))
                 .AddTo(this);
 
             GameStateManager.PlayerDiedAnimationCompleted
