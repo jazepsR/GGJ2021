@@ -9693,8 +9693,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6279045357961584371}
-  - component: {fileID: 1674508720}
   - component: {fileID: 1647666358}
+  - component: {fileID: 3237662306043059582}
   m_Layer: 0
   m_Name: EerieTorch
   m_TagString: Untagged
@@ -9720,20 +9720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1674508720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658702687534433353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b654105219943849de6b1ead4bf25db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amount: 20
-  destroyOnCollide: 0
 --- !u!65 &1647666358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9747,3 +9733,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.886944, y: 4.5460863, z: 6.2929764}
   m_Center: {x: -0.12130737, y: 1.7730432, z: 0.2405901}
+--- !u!114 &3237662306043059582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658702687534433353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa56e6d201c545ea9107b45435988f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+  intervalMs: 50
