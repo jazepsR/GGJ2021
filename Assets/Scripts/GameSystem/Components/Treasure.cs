@@ -22,6 +22,8 @@ namespace GameSystem.Components
 
         [SerializeField] private double delayToStart = 2;
 
+        [SerializeField] private float rubberBandFactor = 0f;
+
         private bool _finishedStartup;
         private Vector3 _targetStartPosition;
         private bool _shouldFollow;
@@ -69,7 +71,9 @@ namespace GameSystem.Components
             var playerPosition = GameStateManager.CurrentPlayer.transform.position;
             var position = transform.position;
             var target = new Vector3(playerPosition.x, playerPosition.y, position.z);
-            transform.position = Vector3.MoveTowards(position, target, moveToPlayerSpeed * Time.deltaTime);
+            var distance = Vector3.Distance(position, target);
+            var rubberBandEffect = Math.Max(1, 0.001f * rubberBandFactor * distance * distance);
+            transform.position = Vector3.MoveTowards(position, target,  rubberBandEffect * moveToPlayerSpeed * Time.deltaTime);
         }
 
         private void CalculateSanityDamage()

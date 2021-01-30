@@ -37,6 +37,7 @@ MonoBehaviour:
   zPositionEnd: 2
   yPositionEnd: 7
   delayToStart: 2
+  rubberBandFactor: 15
 --- !u!114 &2136281229785236222
 MonoBehaviour:
   m_ObjectHideFlags: 0
