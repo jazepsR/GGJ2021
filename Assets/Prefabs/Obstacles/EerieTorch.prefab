@@ -9693,8 +9693,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6279045357961584371}
-  - component: {fileID: 1674508721}
   - component: {fileID: 1674508720}
+  - component: {fileID: 1647666358}
   m_Layer: 0
   m_Name: EerieTorch
   m_TagString: Untagged
@@ -9720,19 +9720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1674508721
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658702687534433353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 1.85, z: 0}
 --- !u!114 &1674508720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9747,3 +9734,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 20
   destroyOnCollide: 0
+--- !u!65 &1647666358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658702687534433353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.886944, y: 4.5460863, z: 6.2929764}
+  m_Center: {x: -0.12130737, y: 1.7730432, z: 0.2405901}
