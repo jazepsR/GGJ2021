@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 54.56 54.56"
+   version="1.1"
+   sodipodi:docname="Sanity_bar_happy.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3506"
+     inkscape:window-height="2054"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="18.475073"
+     inkscape:cx="27.280001"
+     inkscape:cy="28.326568"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#939598;}</style>
+  </defs>
+  <path
+     id="path6"
+     d="M 27.25 0 A 27.28 27.28 0 1 0 54.529297 27.279297 A 27.28 27.28 0 0 0 27.25 0 z M 18.431641 18.480469 A 3.52 3.52 0 0 1 18.449219 18.480469 A 3.52 3.52 0 1 1 14.919922 22 A 3.52 3.52 0 0 1 18.431641 18.480469 z M 36.042969 18.480469 A 3.52 3.52 0 0 1 36.089844 18.480469 A 3.52 3.52 0 1 1 32.529297 22 A 3.52 3.52 0 0 1 36.042969 18.480469 z M 16.085938 34.369141 A 1.76 1.76 0 0 1 17.359375 34.929688 A 12.93 12.93 0 0 0 37.210938 34.929688 A 1.76 1.76 0 0 1 39.910156 37.179688 A 16.42 16.42 0 0 1 14.660156 37.179688 A 1.76 1.76 0 0 1 16.085938 34.369141 z "
+     style="fill:#ffffff" />
+</svg>
