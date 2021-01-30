@@ -7,7 +7,7 @@ namespace GameSystem.Components
     {
         private void OnCollisionEnter(Collision other)
         {
-            if (Utility.IsPlayerCollision(other))
+            if (other.IsPlayerCollision())
             {
                 GameEvents.KillPlayer(GetPlayerDeathDto());
             }

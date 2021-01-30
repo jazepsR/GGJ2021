@@ -1,11 +1,13 @@
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameSystem
 {
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private float startingSanity;
+        [SerializeField] private string gameSceneName;
 
         private void Awake()
         {
@@ -15,14 +17,14 @@ namespace GameSystem
 
         private void SetupPlayingLogic()
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+            GameStateManager.CurrentGameState
+                .Subscribe(state => Debug.Log($"Game state = {state.ToString()}"));
+            
             GameStateManager.CurrentGameState
                 .Where(state => state == GameState.Playing)
                 .Subscribe(_ => PlayerStats.SanityUpdater.Value = startingSanity)
-                .AddTo(this);
-
-            GameEvents.PlayerDeath
-                .IsPlaying()
-                .Subscribe(_ => RestartGame())
                 .AddTo(this);
 
             GameEvents.SanityLowered
@@ -35,21 +37,23 @@ namespace GameSystem
                 .Subscribe(dto => PlayerStats.SanityUpdater.Value += dto.amount)
                 .AddTo(this);
 
-            PlayerStats.CurrentSanity
+            GameStateManager.PlayerDiedAnimationCompleted
                 .IsPlaying()
-                .Where(amount => amount <= 0f)
-                .Subscribe(dto => PlayerLostAllSanity())
+                .Subscribe(_ => GameScene.RestartGame())
                 .AddTo(this);
         }
 
-        private void RestartGame()
+        private void OnDestroy()
         {
-            
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void PlayerLostAllSanity()
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            
+            if (scene.IsPlayScene(gameSceneName))
+            {
+                GameStateManager.CurrentGameState.Value = GameState.Playing;
+            }
         }
     }
 }
