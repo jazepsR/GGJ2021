@@ -1,3 +1,5 @@
+using System;
+using GameSystem.Dto;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,9 +34,15 @@ namespace GameSystem.Components
                 .Subscribe(dto => PlayerStats.SanityUpdater.Value -= dto.amount)
                 .AddTo(this);
 
+            PlayerStats.CurrentSanity
+                .IsPlaying()
+                .Where(value => value <= 0)
+                .Subscribe(_ => GameEvents.KillPlayer(new PlayerDeathDto()))
+                .AddTo(this);
+
             GameEvents.SanityGained
                 .IsPlaying()
-                .Subscribe(dto => PlayerStats.SanityUpdater.Value += dto.amount)
+                .Subscribe(dto => PlayerStats.SanityUpdater.Value = Math.Min(startingSanity, PlayerStats.CurrentSanity.Value + dto.amount))
                 .AddTo(this);
 
             GameStateManager.PlayerDiedAnimationCompleted
