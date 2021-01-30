@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 994404846678548049}
   - component: {fileID: 5869263356506078351}
-  - component: {fileID: 5869263356506078350}
+  - component: {fileID: 4844623619254381439}
   m_Layer: 0
   m_Name: NormalTorch
   m_TagString: Untagged
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   destroyOnCollide: 0
---- !u!135 &5869263356506078350
-SphereCollider:
+--- !u!65 &4844623619254381439
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,8 +140,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 1.07, z: 0}
+  m_Size: {x: 5.092683, y: 3.8839521, z: 5.144163}
+  m_Center: {x: -0.012871146, y: 2.1629634, z: -0.012869835}
 --- !u!1 &7629670189948042325
 GameObject:
   m_ObjectHideFlags: 0
