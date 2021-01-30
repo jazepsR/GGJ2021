@@ -9,6 +9,7 @@ namespace GameSystem
 
         private void Awake()
         {
+            DontDestroyOnLoad(this);
             SetupPlayingLogic();
         }
 
