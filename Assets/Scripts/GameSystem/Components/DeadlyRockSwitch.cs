@@ -8,7 +8,7 @@ public class DeadlyRockSwitch : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private bool destroyOnCollide = false;
-
+    [SerializeField] private float delay = 0f;
 
     private void Start()
     {
@@ -17,21 +17,24 @@ public class DeadlyRockSwitch : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.IsPlayerCollision()) return;
+        StartCoroutine(EnableBoulder(delay));
 
+    }
+
+    private IEnumerator EnableBoulder(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         rb.isKinematic = false;
         if (destroyOnCollide)
         {
             Destroy(gameObject);
         }
+
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (!other.IsPlayerCollision()) return;
-        rb.isKinematic = false;
-        if (destroyOnCollide)
-        {
-            Destroy(gameObject);
-        }
+        StartCoroutine(EnableBoulder(delay));
     }
 }

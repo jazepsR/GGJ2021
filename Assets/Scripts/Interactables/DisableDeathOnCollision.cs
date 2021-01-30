@@ -15,7 +15,8 @@ public class DisableDeathOnCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Floor")
         {
-            GetComponent<GameSystem.Components.DeathCollider>().enabled = false;
+            GetComponent<GameSystem.Components.DeathCollider>().active = false;
+            GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }

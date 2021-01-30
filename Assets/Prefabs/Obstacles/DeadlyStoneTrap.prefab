@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1735332048923758942}
   destroyOnCollide: 0
+  delay: 0.5
 --- !u!1001 &1735332047468575959
 PrefabInstance:
   m_ObjectHideFlags: 0

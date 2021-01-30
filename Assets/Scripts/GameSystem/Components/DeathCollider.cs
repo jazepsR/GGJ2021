@@ -5,9 +5,10 @@ namespace GameSystem.Components
 {
     public class DeathCollider : MonoBehaviour
     {
+        public bool active = true;
         private void OnCollisionEnter(Collision other)
         {
-            if (other.IsPlayerCollision())
+            if (other.IsPlayerCollision() && active)
             {
                 GameEvents.KillPlayer(GetPlayerDeathDto());
             }
@@ -15,7 +16,7 @@ namespace GameSystem.Components
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.IsPlayerCollision())
+            if (other.IsPlayerCollision() && active)
             {
                 GameEvents.KillPlayer(GetPlayerDeathDto());
             }
