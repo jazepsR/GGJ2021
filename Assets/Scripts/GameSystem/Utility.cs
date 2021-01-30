@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameSystem
 {
@@ -6,9 +7,7 @@ namespace GameSystem
     {
         private const string PlayerTag = "player";
         
-        internal static bool IsPlayerCollision(Collision other)
-        {
-            return other.gameObject.CompareTag(PlayerTag);
-        }
+        internal static bool IsPlayerCollision(this Collision other) => other.gameObject.CompareTag(PlayerTag);
+        internal static bool IsPlayScene(this Scene scene) => scene.name == "Game";
     }
 }

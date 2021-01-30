@@ -1,5 +1,6 @@
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameSystem
 {
@@ -15,14 +16,11 @@ namespace GameSystem
 
         private void SetupPlayingLogic()
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            
             GameStateManager.CurrentGameState
                 .Where(state => state == GameState.Playing)
                 .Subscribe(_ => PlayerStats.SanityUpdater.Value = startingSanity)
-                .AddTo(this);
-
-            GameEvents.PlayerDeath
-                .IsPlaying()
-                .Subscribe(_ => RestartGame())
                 .AddTo(this);
 
             GameEvents.SanityLowered
@@ -35,21 +33,34 @@ namespace GameSystem
                 .Subscribe(dto => PlayerStats.SanityUpdater.Value += dto.amount)
                 .AddTo(this);
 
-            PlayerStats.CurrentSanity
+            GameStateManager.PlayerDiedAnimationCompleted
                 .IsPlaying()
-                .Where(amount => amount <= 0f)
-                .Subscribe(dto => PlayerLostAllSanity())
+                .Subscribe(_ => RestartGame())
                 .AddTo(this);
         }
 
-        private void RestartGame()
+        private void OnDestroy()
         {
-            
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void PlayerLostAllSanity()
+        private static void RestartGame()
         {
-            
+            GameStateManager.CurrentGameState.Value = GameState.Loading;
+            ReloadGameScene();
+        }
+
+        private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.IsPlayScene())
+            {
+                GameStateManager.CurrentGameState.Value = GameState.Playing;
+            }
+        }
+
+        private static void ReloadGameScene()
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

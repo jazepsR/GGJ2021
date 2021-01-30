@@ -10,7 +10,7 @@ namespace GameSystem.Components
         
         private void OnCollisionEnter(Collision other)
         {
-            if (!Utility.IsPlayerCollision(other)) return;
+            if (!other.IsPlayerCollision()) return;
             
             OnPlayerCollide();
             
