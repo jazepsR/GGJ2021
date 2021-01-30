@@ -2,9 +2,9 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameSystem
+namespace GameSystem.Components
 {
-    public class GameManager : MonoBehaviour
+    public class GameManagerComponent : MonoBehaviour
     {
         [SerializeField] private float startingSanity;
         [SerializeField] private string gameSceneName;
