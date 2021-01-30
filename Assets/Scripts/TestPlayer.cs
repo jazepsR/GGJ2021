@@ -1,9 +1,18 @@
+using GameSystem;
+using UniRx;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class TestPlayer : MonoBehaviour
     {
+        private void Awake()
+        {
+            GameEvents.PlayerDeath
+                .Subscribe(_ => GameStateManager.PlayerDiedAnimationComplete())
+                .AddTo(this);
+        }
+
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.W))
