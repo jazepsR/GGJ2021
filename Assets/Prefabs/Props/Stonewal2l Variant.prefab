@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &3100745732893283189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471095652387281257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.257956, y: 14.342305, z: 17.262276}
+  m_Center: {x: -0.057972193, y: 6.5533757, z: 0.075595856}
 --- !u!1001 &7835157472317610361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,6 +75,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 1ab4692f151f28247b83fbe6c8758368,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 1ab4692f151f28247b83fbe6c8758368,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -75,7 +93,13 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ab4692f151f28247b83fbe6c8758368,
         type: 3}
       propertyPath: m_Name
-      value: Stonewal2l
+      value: Stonewal2l Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ab4692f151f28247b83fbe6c8758368, type: 3}
+--- !u!1 &1471095652387281257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 1ab4692f151f28247b83fbe6c8758368,
+    type: 3}
+  m_PrefabInstance: {fileID: 7835157472317610361}
+  m_PrefabAsset: {fileID: 0}
