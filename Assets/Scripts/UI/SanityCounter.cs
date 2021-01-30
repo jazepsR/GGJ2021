@@ -68,5 +68,10 @@ namespace UI
         {
             rectTransform.anchorMax = new Vector2(currentSanity / PlayerStats.MaxSanity, rectTransform.anchorMax.y);
         }
+
+        private void OnDestroy()
+        {
+            _disposable?.Dispose();
+        }
     }
 }

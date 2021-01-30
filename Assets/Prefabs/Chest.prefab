@@ -290,3 +290,5 @@ MonoBehaviour:
   interactableCollider: {fileID: 4008038705895978764}
   objectToSpawn: {fileID: 4623190145054270197, guid: 5d8580520de644572bf1c3ee587a4e94,
     type: 3}
+  zForwardPosition: -3
+  yLeftPosition: 2
