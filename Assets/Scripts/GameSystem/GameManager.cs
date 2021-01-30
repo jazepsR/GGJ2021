@@ -7,6 +7,7 @@ namespace GameSystem
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private float startingSanity;
+        [SerializeField] private string gameSceneName;
 
         private void Awake()
         {
@@ -17,6 +18,9 @@ namespace GameSystem
         private void SetupPlayingLogic()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
+
+            GameStateManager.CurrentGameState
+                .Subscribe(state => Debug.Log($"Game state = {state.ToString()}"));
             
             GameStateManager.CurrentGameState
                 .Where(state => state == GameState.Playing)
@@ -35,7 +39,7 @@ namespace GameSystem
 
             GameStateManager.PlayerDiedAnimationCompleted
                 .IsPlaying()
-                .Subscribe(_ => RestartGame())
+                .Subscribe(_ => GameScene.RestartGame())
                 .AddTo(this);
         }
 
@@ -44,23 +48,12 @@ namespace GameSystem
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private static void RestartGame()
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            GameStateManager.CurrentGameState.Value = GameState.Loading;
-            ReloadGameScene();
-        }
-
-        private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            if (scene.IsPlayScene())
+            if (scene.IsPlayScene(gameSceneName))
             {
                 GameStateManager.CurrentGameState.Value = GameState.Playing;
             }
-        }
-
-        private static void ReloadGameScene()
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
