@@ -1,6 +1,5 @@
 using System;
 using GameSystem.Dto;
-using UniRx;
 using UnityEngine;
 
 namespace GameSystem.Components
@@ -31,18 +30,12 @@ namespace GameSystem.Components
 
             _timePassed = 0f;
             
-            PreTriggerSanity();
             TriggerSanity();
         }
 
         private void OnDestroy()
         {
             _disposable?.Dispose();
-        }
-
-        protected virtual void PreTriggerSanity()
-        {
-            
         }
 
         protected abstract void TriggerSanity();

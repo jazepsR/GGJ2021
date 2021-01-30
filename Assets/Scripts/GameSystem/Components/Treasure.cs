@@ -1,26 +1,36 @@
-using System;
-using System.Runtime.CompilerServices;
-using UniRx;
 using UnityEngine;
 
 namespace GameSystem.Components
 {
-    public class Treasure : LoseSanityInterval
+    public class Treasure : MonoBehaviour
     {
+        [SerializeField] private LoseSanityInterval interval;
         [SerializeField] private float maxLoss;
         [SerializeField] private float minLoss;
         [SerializeField] private long minIntervalMs;
         [SerializeField] private long maxIntervalMs;
         [SerializeField] private float maxDistance = 1;
 
-        private void Start()
+        [SerializeField] private float speed = 0.1f;
+
+        private void Update()
         {
-            PlayerInCollider.Subscribe(value => Debug.Log($"Treasure collides with player {value}")).AddTo(this);
+            CalculateSanityDamage();
+
+            MoveToPlayer();
         }
 
-        protected override void PreTriggerSanity()
+        private void MoveToPlayer()
         {
-            if (!PlayerInCollider.Value)
+            var playerPosition = GameStateManager.CurrentPlayer.transform.position;
+            var position = transform.position;
+            var target = new Vector3(playerPosition.x, playerPosition.y, position.z);
+            transform.position = Vector3.MoveTowards(position, target, speed * Time.deltaTime);
+        }
+
+        private void CalculateSanityDamage()
+        {
+            if (!interval.PlayerInCollider.Value)
             {
                 return;
             }
@@ -29,20 +39,16 @@ namespace GameSystem.Components
             {
                 maxDistance = 1;
             }
-            
-            
-            var distance = Vector3.Distance(transform.position, GameStateManager.CurrentPlayer.transform.position) / maxDistance;
+
+
+            var distance = Vector3.Distance(transform.position, GameStateManager.CurrentPlayer.transform.position) /
+                           maxDistance;
             if (distance > maxDistance)
                 Debug.Log($"Distance is greater than max {distance} for max {maxDistance}");
-            
-            amount = maxLoss - Mathf.Lerp(0f, maxLoss - minLoss, distance);
 
-            intervalMs = (long) Mathf.Lerp(minIntervalMs, maxIntervalMs,distance);
-        }
+            interval.amount = maxLoss - Mathf.Lerp(0f, maxLoss - minLoss, distance);
 
-        protected override void TriggerSanity()
-        {
-            GameEvents.LowerSanity(SanityAmount);
+            interval.intervalMs = (long) Mathf.Lerp(minIntervalMs, maxIntervalMs, distance);
         }
     }
 }

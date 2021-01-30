@@ -26,13 +26,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea45375445d4c6e995d5ec6415c71a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
-  intervalMs: 0
+  interval: {fileID: 2136281229785236222}
   maxLoss: 5
   minLoss: 1
   minIntervalMs: 100
   maxIntervalMs: 400
   maxDistance: 10
+  speed: 4
+--- !u!114 &2136281229785236222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623190145054270197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa56e6d201c545ea9107b45435988f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0
+  intervalMs: 0
 --- !u!1001 &5542162168029831076
 PrefabInstance:
   m_ObjectHideFlags: 0
