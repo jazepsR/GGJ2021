@@ -17,7 +17,7 @@ namespace GameSystem.Components
             
             if (destroyOnCollide)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
         }
 
@@ -29,7 +29,7 @@ namespace GameSystem.Components
             
             if (destroyOnCollide)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
         }
 

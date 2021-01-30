@@ -1,9 +1,22 @@
-﻿using UnityEngine;
+﻿using GameSystem;
+using UnityEngine;
+using UniRx;
 
 namespace Invector.vCharacterController
 {
     public class vThirdPersonController : vThirdPersonAnimator
     {
+        private void Start()
+        {
+            GameEvents.PlayerDeath.Subscribe(dto => TriggerDeath()).AddTo(this);
+        }
+
+        private void TriggerDeath()
+        {
+            Debug.LogError("Player died!");
+            GameStateManager.PlayerDiedAnimationComplete();
+        }
+
         public virtual void ControlAnimatorRootMotion()
         {
             if (!this.enabled) return;
