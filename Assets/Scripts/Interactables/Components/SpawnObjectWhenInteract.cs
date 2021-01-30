@@ -16,7 +16,7 @@ namespace Interactables.Components
         
         private void ActiveObject()
         {
-            Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            Instantiate(objectToSpawn, transform.position - (Vector3.back * 3), Quaternion.identity);
             Destroy(gameObject);
         }
     }

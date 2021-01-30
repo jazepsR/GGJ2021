@@ -14,11 +14,6 @@ namespace GameSystem.Components
 
         private float _timePassed;
 
-        private void Start()
-        {
-            PlayerInCollider.Subscribe(value => Debug.Log($"Player in {value}")).AddTo(this);
-        }
-
         private void Update()
         {
             if (!PlayerInCollider.Value)

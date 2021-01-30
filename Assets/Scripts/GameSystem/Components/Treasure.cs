@@ -1,4 +1,6 @@
+using System;
 using System.Runtime.CompilerServices;
+using UniRx;
 using UnityEngine;
 
 namespace GameSystem.Components
@@ -10,6 +12,11 @@ namespace GameSystem.Components
         [SerializeField] private long minIntervalMs;
         [SerializeField] private long maxIntervalMs;
         [SerializeField] private float maxDistance = 1;
+
+        private void Start()
+        {
+            PlayerInCollider.Subscribe(value => Debug.Log($"Treasure collides with player {value}")).AddTo(this);
+        }
 
         protected override void PreTriggerSanity()
         {
