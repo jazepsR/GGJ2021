@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSanity: 100
-  gameSceneName: TestLogicScene
+  gameSceneName: Level_01
