@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Invector.vCharacterController
 {
@@ -22,6 +23,7 @@ namespace Invector.vCharacterController
         [HideInInspector] public Camera cameraMain;
 
         #endregion
+        [SerializeField] private Animator anim;
 
         protected virtual void Start()
         {
@@ -85,6 +87,7 @@ namespace Invector.vCharacterController
         {
             cc.input.x = Input.GetAxis(horizontalInput);
             cc.input.z = 0;// Input.GetAxis(verticallInput);
+            anim.SetBool("walking", Mathf.Abs(cc.input.x) > 0.1f);
         }
 
         protected virtual void CameraInput()
@@ -142,9 +145,18 @@ namespace Invector.vCharacterController
         protected virtual void JumpInput()
         {
             if (Input.GetKeyDown(jumpInput) && JumpConditions())
+            {
                 cc.Jump();
+               // StartCoroutine(JumpDelay(0.4f));
+                anim.SetTrigger("jump");
+            }
         }
 
+        private IEnumerator JumpDelay(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            cc.Jump();
+        }
         #endregion       
     }
 }
