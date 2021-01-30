@@ -88,8 +88,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 994404846678548049}
-  - component: {fileID: 5869263356506078350}
   - component: {fileID: 8170986660714322998}
+  - component: {fileID: 5361047152163717015}
   m_Layer: 0
   m_Name: NormalTorch
   m_TagString: Untagged
@@ -115,19 +115,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5869263356506078350
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470350579240256747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 1.07, z: 0}
 --- !u!114 &8170986660714322998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +129,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 1
   intervalMs: 500
+--- !u!65 &5361047152163717015
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470350579240256747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.066943, y: 5, z: 5}
+  m_Center: {x: 0.025739312, y: 2.63, z: 0}
 --- !u!1 &7629670189948042325
 GameObject:
   m_ObjectHideFlags: 0
