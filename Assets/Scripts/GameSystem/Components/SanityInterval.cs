@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameSystem.Components
 {
-    public class LoseSanity : MonoBehaviour
+    public abstract class SanityInterval : MonoBehaviour
     {
         public float amount;
         public long intervalMs;
@@ -14,11 +14,13 @@ namespace GameSystem.Components
         {
             Observable.Timer(TimeSpan.FromMilliseconds(intervalMs))
                 .Where(_ => isActiveAndEnabled)
-                .Subscribe(_ => GameEvents.LowerSanity(SanityAmount))
+                .Subscribe(_ => TriggerSanity())
                 .AddTo(this);
         }
+
+        protected abstract void TriggerSanity();
         
-        private SanityDto SanityAmount => new SanityDto
+        protected SanityDto SanityAmount => new SanityDto
         {
             amount = amount
         };
