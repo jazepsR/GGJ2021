@@ -12,7 +12,7 @@ namespace Interactables
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyPress.InterActionButton))
+            if (Input.GetKeyDown(KeyPress.InterActionButton) || Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Joystick2Button2))
             {
                 KeyPress.InterActionButtonPressed.OnNext(Unit.Default);
             }
