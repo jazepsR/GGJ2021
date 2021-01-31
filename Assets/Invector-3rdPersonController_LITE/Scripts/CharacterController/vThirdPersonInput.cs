@@ -150,7 +150,8 @@ namespace Invector.vCharacterController
 
         protected virtual void SprintInput()
         {
-            if (Input.GetKeyDown(sprintInput))
+            if (Input.GetKeyDown(sprintInput) || Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.Joystick1Button5) 
+                || Input.GetKeyDown(KeyCode.Joystick2Button4) || Input.GetKeyDown(KeyCode.Joystick2Button5))
                 cc.Sprint(true);
             else if (Input.GetKeyUp(sprintInput))
                 cc.Sprint(false);
@@ -174,7 +175,7 @@ namespace Invector.vCharacterController
         {
 
 
-            if (Input.GetKeyDown(jumpInput) && JumpConditions())
+            if ((Input.GetKeyDown(jumpInput) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick2Button0)) && JumpConditions())
             {
                 cc.Jump();
                // StartCoroutine(JumpDelay(0.4f));
