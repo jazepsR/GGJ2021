@@ -51,15 +51,24 @@ namespace GameSystem.Components.Core
                 .Subscribe(dto => PlayerStats.SanityUpdater.Value = Math.Min(maxSanity, PlayerStats.CurrentSanity.Value + dto.amount))
                 .AddTo(this);
 
-            GameStateManager.PlayerDiedAnimationCompleted
-                .IsPlaying()
-                .Subscribe(_ => GameScene.RestartGame())
+            GameStateManager.CurrentGameState
+                .Where(state => state == GameState.Menu)
+                .Subscribe(_ => Pause())
                 .AddTo(this);
 
-            GameStateManager.PlayerCompleteLevel
-                .IsPlaying()
-                .Subscribe(_ => GameScene.RestartGame())
+            GameStateManager.CurrentGameState
+                .Where(state => state == GameState.Playing)
+                .Subscribe(_ => UnPause())
                 .AddTo(this);
+        }
+
+        private void Pause()
+        {
+            Time.timeScale = 0;
+        }
+        private void UnPause()
+        {
+            Time.timeScale = 1f;
         }
 
         private void OnDestroy()

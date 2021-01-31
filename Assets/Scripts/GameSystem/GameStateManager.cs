@@ -10,7 +10,7 @@ namespace GameSystem
         
         internal static MonoBehaviour currentPlayerSet;
         internal static ISubject<Unit> PlayerCompleteLevelSubject { get; } = new Subject<Unit>();
-        internal static IObservable<Unit> PlayerDiedAnimationCompleted => PlayerDiedAnimationCompleteSubject;
+        public static IObservable<Unit> PlayerDiedAnimationCompleted => PlayerDiedAnimationCompleteSubject;
 
         public static MonoBehaviour CurrentPlayer => currentPlayerSet;
         
@@ -22,7 +22,7 @@ namespace GameSystem
         public static IObservable<Unit> PlayerCompleteLevel => PlayerCompleteLevelSubject;
 
         public static void PlayerDiedAnimationComplete() => PlayerDiedAnimationCompleteSubject.OnNext(Unit.Default);
-        internal static IObservable<T> IsPlaying<T>(this IObservable<T> observable)
+        public static IObservable<T> IsPlaying<T>(this IObservable<T> observable)
         {
             return observable.Where(_ => CurrentGameState.Value == GameState.Playing);
         }
