@@ -9,5 +9,7 @@ namespace GameSystem
 
         public static IReadOnlyReactiveProperty<float> CurrentSanity => SanityUpdater;
         public static float MaxSanity = 0f;
+
+        public static IReactiveProperty<bool> IsJumping { get; } = new ReactiveProperty<bool>(false);
     }
 }

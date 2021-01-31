@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameSystem;
+using UnityEngine;
 
 namespace Invector.vCharacterController
 {
@@ -68,7 +69,16 @@ namespace Invector.vCharacterController
         #region Internal Variables
 
         // movement bools
-        internal bool isJumping;
+        internal bool isJumping
+        {
+            get => _isJumping;
+            set
+            {
+                _isJumping = value;
+                PlayerStats.IsJumping.Value = _isJumping;
+            }
+        }
+
         internal bool isStrafing
         {
             get
@@ -102,6 +112,7 @@ namespace Invector.vCharacterController
         internal Vector3 colliderCenter;                    // storage the center of the capsule collider info                
         internal Vector3 inputSmooth;                       // generate smooth input based on the inputSmooth value       
         internal Vector3 moveDirection;                     // used to know the direction you're moving 
+        private bool _isJumping;
 
         #endregion
 
