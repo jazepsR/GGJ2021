@@ -18,6 +18,8 @@ namespace GameSystem
             new ReactiveProperty<GameState>(GameState.Initial);
         public static IReactiveProperty<bool> TreasureSpawned { get; } =
             new ReactiveProperty<bool>(false);
+        public static IReactiveProperty<bool> TreasureChasing { get; } =
+            new ReactiveProperty<bool>(false);
 
         public static IObservable<Unit> PlayerCompleteLevel => PlayerCompleteLevelSubject;
 
