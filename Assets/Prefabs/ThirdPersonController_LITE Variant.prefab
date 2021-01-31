@@ -884,6 +884,11 @@ PrefabInstance:
       objectReference: {fileID: 9044186990250396801}
     - target: {fileID: 4425428723088313502, guid: fc9b148a2950aaf4cba8422632222c5d,
         type: 3}
+      propertyPath: deathDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425428723088313502, guid: fc9b148a2950aaf4cba8422632222c5d,
+        type: 3}
       propertyPath: verticallInput
       value: Vertical
       objectReference: {fileID: 0}
