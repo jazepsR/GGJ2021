@@ -25,6 +25,8 @@ namespace GameSystem.Components.Core
 
         [SerializeField] private float rubberBandFactor = 0f;
 
+        [SerializeField] private AudioSource scream;
+
         private bool _finishedStartup;
         private Vector3 _targetStartPosition;
         private bool _shouldFollow;
@@ -58,6 +60,7 @@ namespace GameSystem.Components.Core
                     Time.deltaTime * startUpSpeed);
                 
                 if (!(Vector3.Distance(transform.position, _targetStartPosition) <= 0.00001f)) return;
+                scream.Play();
                 _finishedStartup = true;
                 Observable.Return(Unit.Default).Delay(TimeSpan.FromSeconds(delayToStart))
                     .Take(1)
@@ -107,6 +110,7 @@ namespace GameSystem.Components.Core
         {
             GameStateManager.TreasureSpawned.Value = false;
             GameStateManager.TreasureChasing.Value = false;
+            scream.Stop();
         }
     }
 }
