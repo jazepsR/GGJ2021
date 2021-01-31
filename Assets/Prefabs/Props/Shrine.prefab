@@ -167,6 +167,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374667892502545652}
+  - component: {fileID: 1034499537808496220}
+  - component: {fileID: 2571237533875014809}
+  - component: {fileID: 498052264692035251}
   m_Layer: 0
   m_Name: Shrine
   m_TagString: Untagged
@@ -182,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754184518942563918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4730415, y: -1.4761009, z: -2.4582531}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5034104935198253886}
@@ -194,6 +197,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1034499537808496220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754184518942563918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7, y: 5, z: 9}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &2571237533875014809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754184518942563918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e006f9c1894df28d7d66d74795d458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &498052264692035251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754184518942563918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a032ebd35b4dceb2afe0ca355e7579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollider: {fileID: 2571237533875014809}
 --- !u!1 &4122443903316366133
 GameObject:
   m_ObjectHideFlags: 0
