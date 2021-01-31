@@ -55,6 +55,11 @@ namespace GameSystem.Components.Core
                 .IsPlaying()
                 .Subscribe(_ => GameScene.RestartGame())
                 .AddTo(this);
+
+            GameStateManager.PlayerCompleteLevel
+                .IsPlaying()
+                .Subscribe(_ => GameScene.RestartGame())
+                .AddTo(this);
         }
 
         private void OnDestroy()

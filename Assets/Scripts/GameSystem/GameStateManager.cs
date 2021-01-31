@@ -9,6 +9,7 @@ namespace GameSystem
         private static ISubject<Unit> PlayerDiedAnimationCompleteSubject { get; } = new Subject<Unit>();
         
         internal static MonoBehaviour currentPlayerSet;
+        internal static ISubject<Unit> PlayerCompleteLevelSubject { get; } = new Subject<Unit>();
         internal static IObservable<Unit> PlayerDiedAnimationCompleted => PlayerDiedAnimationCompleteSubject;
 
         public static MonoBehaviour CurrentPlayer => currentPlayerSet;
@@ -17,6 +18,8 @@ namespace GameSystem
             new ReactiveProperty<GameState>(GameState.Initial);
         public static IReactiveProperty<bool> TreasureSpawned { get; } =
             new ReactiveProperty<bool>(false);
+
+        public static IObservable<Unit> PlayerCompleteLevel => PlayerCompleteLevelSubject;
 
         public static void PlayerDiedAnimationComplete() => PlayerDiedAnimationCompleteSubject.OnNext(Unit.Default);
         internal static IObservable<T> IsPlaying<T>(this IObservable<T> observable)
