@@ -1,8 +1,9 @@
 using System;
+using GameSystem.Components.Sanity;
 using UniRx;
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Core
 {
     public class Treasure : MonoBehaviour
     {
@@ -30,6 +31,8 @@ namespace GameSystem.Components
 
         private void Start()
         {
+            GameStateManager.TreasureSpawned.Value = true;
+            
             Transform transform1;
             (transform1 = transform).Rotate(90, 0, 0);
             var position = transform1.position;
@@ -97,6 +100,11 @@ namespace GameSystem.Components
             interval.amount = maxLoss - Mathf.Lerp(0f, maxLoss - minLoss, distance);
 
             interval.intervalMs = (long) Mathf.Lerp(minIntervalMs, maxIntervalMs, distance);
+        }
+
+        private void OnDestroy()
+        {
+            GameStateManager.TreasureSpawned.Value = false;
         }
     }
 }

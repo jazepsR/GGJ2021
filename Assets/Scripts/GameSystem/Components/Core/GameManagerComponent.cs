@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Core
 {
     public class GameManagerComponent : MonoBehaviour
     {
@@ -17,6 +17,10 @@ namespace GameSystem.Components
             PlayerStats.MaxSanity = maxSanity;
             DontDestroyOnLoad(this);
             SetupPlayingLogic();
+
+            GameStateManager.TreasureSpawned
+                .Subscribe(value => Debug.Log($"Treasure spawned {value}"))
+                .AddTo(this);
         }
 
         private void SetupPlayingLogic()

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Core
 {
     public class PlayerComponent : MonoBehaviour
     {
         private void Awake()
         {
-            GameStateManager.CurrentPlayerSet = this;
+            GameStateManager.currentPlayerSet = this;
         }
     }
 }

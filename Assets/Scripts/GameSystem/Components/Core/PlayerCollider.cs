@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Core
 {
     public class PlayerCollider : MonoBehaviour
     {

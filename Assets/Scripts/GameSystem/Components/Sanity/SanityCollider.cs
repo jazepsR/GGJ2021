@@ -1,8 +1,7 @@
-using System;
 using GameSystem.Dto;
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Sanity
 {
     public abstract class SanityCollider : MonoBehaviour
     {

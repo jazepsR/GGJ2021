@@ -1,8 +1,9 @@
 using System;
+using GameSystem.Components.Core;
 using GameSystem.Dto;
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Sanity
 {
     public abstract class SanityInterval : PlayerCollider
     {

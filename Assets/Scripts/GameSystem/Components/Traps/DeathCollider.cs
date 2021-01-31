@@ -1,7 +1,7 @@
 using GameSystem.Dto;
 using UnityEngine;
 
-namespace GameSystem.Components
+namespace GameSystem.Components.Traps
 {
     public class DeathCollider : MonoBehaviour
     {

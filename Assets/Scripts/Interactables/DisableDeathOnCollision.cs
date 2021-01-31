@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GameSystem.Components.Traps;
 using UnityEngine;
 
 public class DisableDeathOnCollision : MonoBehaviour
@@ -15,7 +16,7 @@ public class DisableDeathOnCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Floor")
         {
-            GetComponent<GameSystem.Components.DeathCollider>().active = false;
+            GetComponent<DeathCollider>().active = false;
             GetComponent<Rigidbody>().isKinematic = true;
         }
     }

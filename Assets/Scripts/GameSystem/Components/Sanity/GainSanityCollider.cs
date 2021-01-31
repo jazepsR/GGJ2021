@@ -1,4 +1,4 @@
-namespace GameSystem.Components
+namespace GameSystem.Components.Sanity
 {
     public class GainSanityCollider : SanityCollider
     {
