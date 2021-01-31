@@ -65,6 +65,7 @@ namespace GameSystem.Components.Core
                     {
                         interval.shouldLowerSanity = true;
                         _shouldFollow = true;
+                        GameStateManager.TreasureChasing.Value = true;
                     }).AddTo(this);
             }
         }
@@ -105,6 +106,7 @@ namespace GameSystem.Components.Core
         private void OnDestroy()
         {
             GameStateManager.TreasureSpawned.Value = false;
+            GameStateManager.TreasureChasing.Value = false;
         }
     }
 }
