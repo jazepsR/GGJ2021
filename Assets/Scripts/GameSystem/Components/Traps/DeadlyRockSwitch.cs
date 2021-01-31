@@ -8,7 +8,7 @@ namespace GameSystem.Components.Traps
         [SerializeField] private Rigidbody rb;
         [SerializeField] private bool destroyOnCollide = false;
         [SerializeField] private float delay = 0f;
-
+        [SerializeField] private Animator anim;
         private void Start()
         {
             rb.isKinematic = true;
@@ -23,6 +23,10 @@ namespace GameSystem.Components.Traps
         private IEnumerator EnableBoulder(float delay)
         {
             yield return new WaitForSeconds(delay);
+            if (anim)
+            {
+                anim.SetTrigger("press");
+            }
             rb.isKinematic = false;
             if (destroyOnCollide)
             {
