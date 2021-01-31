@@ -5,6 +5,8 @@ namespace GameSystem.Components.Core
 {
     public class PlayerCollider : MonoBehaviour
     {
+        [SerializeField] private AudioSource sfx;
+        
         private readonly IReactiveProperty<bool> _playerInCollider = new ReactiveProperty<bool>();
 
         public IReadOnlyReactiveProperty<bool> PlayerInCollider => _playerInCollider;
@@ -37,6 +39,14 @@ namespace GameSystem.Components.Core
             }
 
             _playerInCollider.Value = value;
+            if (value)
+            {
+                sfx?.Play();
+            }
+            else
+            {
+                sfx?.Stop();
+            }
         }
         
         private void PlayerDidEnterCollider(Collision other, bool value)
@@ -47,6 +57,14 @@ namespace GameSystem.Components.Core
             }
 
             _playerInCollider.Value = value;
+            if (value)
+            {
+                sfx?.Play();
+            }
+            else
+            {
+                sfx?.Stop();
+            }
         }
     }
 }

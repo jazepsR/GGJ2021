@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-8917688377089988458
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambient
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: abc89f75563bd4f018835c41a6623706
+  m_Children: []
+  m_Volume: 3268b2c0a84004bfdba3d0515e20d95b
+  m_Pitch: a6e9a6aa57d6e4ee5a5e0cb7e5c0de08
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8360833131661074311}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-8360833131661074311
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 92cdd158c91984921ba787a555437016
+  m_EffectName: Attenuation
+  m_MixLevel: 580ce589b18e44360bcf155a0b06560d
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-5106138107675383096
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -73,6 +106,7 @@ AudioMixerController:
     - d47d66727f93340d4806f37378d1931d
     - ed1986f2a955d4004a8756a79e87acdf
     - dc6dd04c246dc4f4c9797a6d85f43491
+    - abc89f75563bd4f018835c41a6623706
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -88,6 +122,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -3819961568966167409}
   - {fileID: -5106138107675383096}
+  - {fileID: -8917688377089988458}
   m_Volume: 6a7474b8220b84a58b734c1639651bd4
   m_Pitch: d53a8f899e96e4b2ebb253c158642214
   m_Send: 00000000000000000000000000000000
@@ -120,7 +155,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 677e04e867df94eb2aafc8c93e673439
-  m_FloatValues: {}
+  m_FloatValues:
+    3268b2c0a84004bfdba3d0515e20d95b: -8.841784
   m_TransitionOverrides: {}
 --- !u!244 &2216498475341796027
 AudioMixerEffectController:
