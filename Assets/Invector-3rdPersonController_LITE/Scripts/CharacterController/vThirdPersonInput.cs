@@ -154,6 +154,8 @@ namespace Invector.vCharacterController
                 cc.Sprint(true);
             else if (Input.GetKeyUp(sprintInput))
                 cc.Sprint(false);
+
+            anim.SetFloat("sprint", cc.inputMagnitude);
         }
 
         /// <summary>
