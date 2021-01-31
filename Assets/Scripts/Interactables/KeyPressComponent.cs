@@ -19,12 +19,12 @@ namespace Interactables
             
             if (Input.GetKeyDown(KeyPress.Menu))
             {
-                KeyPress.InterActionButtonPressed.OnNext(Unit.Default);
+                KeyPress.MenuButtonPressed.OnNext(Unit.Default);
             }
 
-            if (Input.anyKey)
+            if (Input.anyKeyDown)
             {
-                
+                KeyPress.AnyKey.OnNext(Unit.Default);
             }
         }
     }

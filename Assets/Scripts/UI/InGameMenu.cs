@@ -15,6 +15,8 @@ namespace UI
         private const string KPaused = "Paused";
         private const string KWon = "Level Complete";
 
+        private readonly SerialDisposable _disposable = new SerialDisposable();
+
         private void Awake()
         {
             GameStateManager.CurrentGameState
@@ -31,12 +33,7 @@ namespace UI
                 .Where(_ => GameStateManager.CurrentGameState.Value == GameState.Playing)
                 .Subscribe(_ => Pause())
                 .AddTo(this);
-            
-            KeyPress.AnyKeyPressed
-                .Where(_ => GameStateManager.CurrentGameState.Value == GameState.Menu)
-                .Subscribe(_ => UnPause())
-                .AddTo(this);
-                        
+
             GameStateManager.PlayerDiedAnimationCompleted
                 .IsPlaying()
                 .Subscribe(_ => EndGame())
@@ -51,32 +48,47 @@ namespace UI
         private void EndGame()
         {
             text.text = KGameOver;
-            GameStateManager.CurrentGameState.Value = GameState.Menu;
-            
-            KeyPress.AnyKeyPressed
-                .Subscribe(_ => GameScene.RestartGame())
-                .AddTo(this);
+            EndGameKeyTrigger();
         }
 
         private void WinGame()
         {
             text.text = KWon;
-            GameStateManager.CurrentGameState.Value = GameState.Menu;
-            
-            KeyPress.AnyKeyPressed
-                .Subscribe(_ => GameScene.RestartGame())
-                .AddTo(this);
+            EndGameKeyTrigger();
         }
 
         private void Pause()
         {
             text.text = KPaused;
+            Debug.Log("Pause");
             GameStateManager.CurrentGameState.Value = GameState.Menu;
+                        
+            _disposable.Disposable = KeyPress.AnyKeyPressed.Take(1)
+                .Subscribe(_ => UnPause());
         }
-        
+
         private void UnPause()
         {
+            Debug.Log("Unpause");
             GameStateManager.CurrentGameState.Value = GameState.Playing;
+            _disposable.Disposable.Dispose();
+        }
+
+        private void OnDestroy()
+        {
+            _disposable.Dispose();
+        }
+
+        private void EndGameKeyTrigger()
+        {
+            GameStateManager.CurrentGameState.Value = GameState.Menu;
+
+            Observable.Return(Unit.Default)
+                .DelayFrameSubscription(5)
+                .Take(1)
+                .ContinueWith(KeyPress.AnyKeyPressed)
+                .Subscribe(_ => GameScene.RestartGame())
+                .AddTo(this);
         }
     }
 }

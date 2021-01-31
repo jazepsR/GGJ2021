@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e288ed847b594dd3b4d5a999c17ca3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1.5
+  amount: 3
   intervalMs: 500
 --- !u!65 &5361047152163717015
 BoxCollider:
@@ -140,7 +140,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7, y: 7, z: 7}
+  m_Size: {x: 12, y: 12, z: 12}
   m_Center: {x: 0.025739312, y: 2.63, z: 0}
 --- !u!1 &7629670189948042325
 GameObject:
