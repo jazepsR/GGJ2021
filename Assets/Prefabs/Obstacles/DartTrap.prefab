@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1125864671871444661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.006, y: 2.14, z: -2.01}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8862896695216224576}
   - {fileID: 458676219820366703}
@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 7868063633729813084}
   - {fileID: 3345410764590069334}
   - {fileID: 4059798742831973928}
-  dartFireDelay: 0.5
+  dartFireDelay: 0.1
   delayBetweenDarts: 0.1
   switchAnim: {fileID: 856878766}
 --- !u!65 &3723512073183667358
