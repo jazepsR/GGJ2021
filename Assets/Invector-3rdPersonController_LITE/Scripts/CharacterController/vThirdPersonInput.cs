@@ -24,7 +24,7 @@ namespace Invector.vCharacterController
 
         #endregion
         [SerializeField] private Animator anim;
-
+        private bool couldJump = false;
         protected virtual void Start()
         {
             InitilizeController();
@@ -81,8 +81,17 @@ namespace Invector.vCharacterController
             SprintInput();
             StrafeInput();
             JumpInput();
+            LandingCheck();
         }
-
+        protected virtual void LandingCheck()
+        {
+            if(couldJump == false && JumpConditions())
+            {
+                Debug.LogError("LANDINGG");
+                anim.SetTrigger("landed");
+            }
+            couldJump = JumpConditions();
+        }
         public virtual void MoveInput()
         {
             cc.input.x = Input.GetAxis(horizontalInput);
@@ -144,11 +153,14 @@ namespace Invector.vCharacterController
         /// </summary>
         protected virtual void JumpInput()
         {
+
+
             if (Input.GetKeyDown(jumpInput) && JumpConditions())
             {
                 cc.Jump();
                // StartCoroutine(JumpDelay(0.4f));
                 anim.SetTrigger("jump");
+                anim.ResetTrigger("landed");
             }
         }
 

@@ -214,6 +214,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterParent
       objectReference: {fileID: 0}
+    - target: {fileID: 2670471040369322192, guid: 2959965a87e46bc458f22be86581f649,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012348030380470911, guid: 2959965a87e46bc458f22be86581f649,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3383189990673987138, guid: 2959965a87e46bc458f22be86581f649,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -223,6 +233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.821266
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461539384681122889, guid: 2959965a87e46bc458f22be86581f649,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3546477269487227486, guid: 2959965a87e46bc458f22be86581f649,
         type: 3}
@@ -504,11 +519,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 13.981547
       objectReference: {fileID: 0}
+    - target: {fileID: 8981396033958384440, guid: 2959965a87e46bc458f22be86581f649,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2959965a87e46bc458f22be86581f649, type: 3}
---- !u!95 &3651590535131233211 stripped
+--- !u!95 &9044186990250396801 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 2670471040477548331, guid: 2959965a87e46bc458f22be86581f649,
+  m_CorrespondingSourceObject: {fileID: 7647408330320164881, guid: 2959965a87e46bc458f22be86581f649,
     type: 3}
   m_PrefabInstance: {fileID: 1703035199078347920}
   m_PrefabAsset: {fileID: 0}
@@ -603,7 +623,7 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 3651590535131233211}
+      objectReference: {fileID: 9044186990250396801}
     - target: {fileID: 4425428723088313502, guid: fc9b148a2950aaf4cba8422632222c5d,
         type: 3}
       propertyPath: verticallInput

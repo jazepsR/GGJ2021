@@ -244,6 +244,7 @@ namespace Invector.vCharacterController
             {
                 jumpCounter = 0;
                 isJumping = false;
+                
             }
             // apply extra force to the jump height   
             var vel = _rigidbody.velocity;
@@ -298,7 +299,6 @@ namespace Invector.vCharacterController
                 isGrounded = true;
                 if (!isJumping && groundDistance > 0.05f)
                     _rigidbody.AddForce(transform.up * (extraGravity * 2 * Time.deltaTime), ForceMode.VelocityChange);
-
                 heightReached = transform.position.y;
             }
             else
