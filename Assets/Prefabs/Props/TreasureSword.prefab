@@ -27,17 +27,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: {fileID: 2136281229785236222}
-  maxLoss: 1
-  minLoss: 0.1
+  maxLoss: 1.5
+  minLoss: 0.2
   minIntervalMs: 100
   maxIntervalMs: 400
   maxDistance: 10
-  moveToPlayerSpeed: 2
+  moveToPlayerSpeed: 2.2
   startUpSpeed: 1
   zPositionEnd: 2
-  yPositionEnd: 7
+  yPositionEnd: 4
   delayToStart: 2
-  rubberBandFactor: 15
+  rubberBandFactor: 20
 --- !u!114 &2136281229785236222
 MonoBehaviour:
   m_ObjectHideFlags: 0
