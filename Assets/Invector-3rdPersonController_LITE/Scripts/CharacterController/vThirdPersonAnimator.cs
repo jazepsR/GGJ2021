@@ -33,6 +33,7 @@ namespace Invector.vCharacterController
             }
 
             animator.SetFloat(vAnimatorParameters.InputMagnitude, stopMove ? 0f : inputMagnitude, isStrafing ? strafeSpeed.animationSmooth : freeSpeed.animationSmooth, Time.deltaTime);
+            
         }
 
         public virtual void SetAnimatorMoveSpeed(vMovementSpeed speed)
