@@ -6,6 +6,7 @@ namespace GameSystem.Components.Core
     public class PlayerComponent : MonoBehaviour
     {
         [SerializeField] private AudioSource jump;
+        [SerializeField] private AudioSource sprinting;
         
         private void Awake()
         {
@@ -13,6 +14,14 @@ namespace GameSystem.Components.Core
             PlayerStats.IsJumping
                 .IfTrue()
                 .Subscribe(_ => jump.Play())
+                .AddTo(this);
+            PlayerStats.IsRunning
+                .IfTrue()
+                .Subscribe(_ => sprinting.Play())
+                .AddTo(this);
+            PlayerStats.IsRunning
+                .IfFalse()
+                .Subscribe(_ => sprinting.Stop())
                 .AddTo(this);
         }
     }

@@ -91,7 +91,17 @@ namespace Invector.vCharacterController
             }
         }
         internal bool isGrounded { get; set; }
-        internal bool isSprinting { get; set; }
+
+        internal bool isSprinting
+        {
+            get => _isSprinting;
+            set
+            {
+                _isSprinting = value;
+                PlayerStats.IsRunning.Value = value;
+            }
+        }
+
         public bool stopMove { get; protected set; }
 
         internal float inputMagnitude;                      // sets the inputMagnitude to update the animations in the animator controller
@@ -113,6 +123,7 @@ namespace Invector.vCharacterController
         internal Vector3 inputSmooth;                       // generate smooth input based on the inputSmooth value       
         internal Vector3 moveDirection;                     // used to know the direction you're moving 
         private bool _isJumping;
+        private bool _isSprinting;
 
         #endregion
 

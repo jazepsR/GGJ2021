@@ -1,5 +1,4 @@
 using UniRx;
-using UnityEngine;
 
 namespace GameSystem
 {
@@ -11,5 +10,7 @@ namespace GameSystem
         public static float MaxSanity = 0f;
 
         public static IReactiveProperty<bool> IsJumping { get; } = new ReactiveProperty<bool>(false);
+        public static IReactiveProperty<bool> IsWalking { get; } = new ReactiveProperty<bool>(false);
+        public static IReactiveProperty<bool> IsRunning { get; } = new ReactiveProperty<bool>(false);
     }
 }
