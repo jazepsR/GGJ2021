@@ -14,47 +14,6 @@ CapsuleCollider:
   m_Height: 40
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-708121253311359548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4623190145054270197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea45375445d4c6e995d5ec6415c71a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: {fileID: 2136281229785236222}
-  maxLoss: 1.5
-  minLoss: 0.2
-  minIntervalMs: 100
-  maxIntervalMs: 400
-  maxDistance: 10
-  moveToPlayerSpeed: 2.2
-  startUpSpeed: 1
-  zPositionEnd: 2
-  yPositionEnd: 4
-  delayToStart: 2
-  rubberBandFactor: 20
-  scream: {fileID: 512679664011434069}
---- !u!114 &2136281229785236222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4623190145054270197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa56e6d201c545ea9107b45435988f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
-  amount: 0
-  intervalMs: 0
-  shouldLowerSanity: 1
 --- !u!82 &512679664011434069
 AudioSource:
   m_ObjectHideFlags: 0
@@ -75,11 +34,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 1.53
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -87,23 +46,50 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.06666667
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -15.005997
+      outSlope: -15.005997
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.13333334
+      value: 0.5
+      inSlope: -3.7514992
+      outSlope: -3.7514992
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.26666668
+      value: 0.25
+      inSlope: -0.9378748
+      outSlope: -0.9378748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5221334
+      value: 0.092041016
+      inSlope: -0.2344687
+      outSlope: -0.2344687
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9831848
+      value: 0.0048685744
+      inSlope: -0.06669331
+      outSlope: -0.06669331
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -152,6 +138,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-708121253311359548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623190145054270197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea45375445d4c6e995d5ec6415c71a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {fileID: 2136281229785236222}
+  maxLoss: 1.5
+  minLoss: 0.2
+  minIntervalMs: 100
+  maxIntervalMs: 400
+  maxDistance: 10
+  moveToPlayerSpeed: 2.2
+  startUpSpeed: 1
+  zPositionEnd: 2
+  yPositionEnd: 4
+  delayToStart: 2
+  rubberBandFactor: 20
+  scream: {fileID: 512679664011434069}
+--- !u!114 &2136281229785236222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623190145054270197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa56e6d201c545ea9107b45435988f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
+  amount: 0
+  intervalMs: 0
+  shouldLowerSanity: 1
 --- !u!1001 &5542162168029831076
 PrefabInstance:
   m_ObjectHideFlags: 0
