@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Interactables.Components
         [SerializeField] private float zForwardPosition;
         [SerializeField] private float xLeftPosition;
         [SerializeField] private float yDownPosition;
+        [SerializeField] private AudioSource interactSound;
         
         private void Awake()
         {
@@ -20,12 +22,31 @@ namespace Interactables.Components
         
         private void ActiveObject()
         {
-            Instantiate(objectToSpawn, transform.position + 
-                                       (Vector3.forward * zForwardPosition) + 
-                                       (Vector3.left * xLeftPosition) + 
-                                       (Vector3.down * yDownPosition), 
-                Quaternion.identity);
-            Destroy(gameObject);
+            if (interactSound != null)
+            {
+                var length = interactSound.clip.length;
+                interactSound.Play();
+                Observable.Return(Unit.Default).Delay(TimeSpan.FromSeconds(length))
+                    .Take(1)
+                    .Subscribe(_ =>
+                    {
+                        Instantiate(objectToSpawn, transform.position + 
+                                                   (Vector3.forward * zForwardPosition) + 
+                                                   (Vector3.left * xLeftPosition) + 
+                                                   (Vector3.down * yDownPosition), 
+                            Quaternion.identity);
+                        Destroy(gameObject);
+                    }).AddTo(this);
+            }
+            else
+            {
+                Instantiate(objectToSpawn, transform.position + 
+                                           (Vector3.forward * zForwardPosition) + 
+                                           (Vector3.left * xLeftPosition) + 
+                                           (Vector3.down * yDownPosition), 
+                    Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
     }
 }

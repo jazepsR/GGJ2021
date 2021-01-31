@@ -41,11 +41,15 @@ namespace GameSystem.Components.Core
             _playerInCollider.Value = value;
             if (value)
             {
-                sfx?.Play();
+                if (sfx != null)
+                {
+                    sfx.Play();
+                }
             }
             else
             {
-                sfx?.Stop();
+                if (sfx != null)
+                    sfx.Stop();
             }
         }
         
@@ -59,11 +63,13 @@ namespace GameSystem.Components.Core
             _playerInCollider.Value = value;
             if (value)
             {
-                sfx?.Play();
+                if (sfx != null)
+                    sfx.Play();
             }
             else
             {
-                sfx?.Stop();
+                if (sfx != null)
+                    sfx.Stop();
             }
         }
     }
