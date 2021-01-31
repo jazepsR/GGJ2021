@@ -87,7 +87,6 @@ namespace Invector.vCharacterController
         {
             if(couldJump == false && JumpConditions())
             {
-                Debug.LogError("LANDINGG");
                 anim.SetTrigger("landed");
             }
             couldJump = JumpConditions();

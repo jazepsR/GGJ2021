@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4257135866698828779}
   - component: {fileID: 917530456212603982}
   - component: {fileID: 3125302837877633156}
+  - component: {fileID: 1717302179061519996}
+  - component: {fileID: 8325536501808045595}
+  - component: {fileID: 3990939356429354383}
   m_Layer: 0
   m_Name: Dart
   m_TagString: Untagged
@@ -79,3 +82,43 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1717302179061519996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485700553379991889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0534534a20531d54fab4338538336c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dartSpeed: 10
+--- !u!65 &8325536501808045595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485700553379991889}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.001493621, y: 0.0014614494, z: 0.0078894235}
+  m_Center: {x: -0.000009504671, y: -0.0000044331528, z: 0.0016280087}
+--- !u!114 &3990939356429354383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485700553379991889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b654105219943849de6b1ead4bf25db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 5
+  destroyOnCollide: 1
