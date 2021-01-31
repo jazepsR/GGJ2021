@@ -153,7 +153,8 @@ namespace Invector.vCharacterController
             if (Input.GetKeyDown(sprintInput) || Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.Joystick1Button5) 
                 || Input.GetKeyDown(KeyCode.Joystick2Button4) || Input.GetKeyDown(KeyCode.Joystick2Button5))
                 cc.Sprint(true);
-            else if (Input.GetKeyUp(sprintInput))
+            else if (Input.GetKeyUp(sprintInput) || Input.GetKeyUp(KeyCode.Joystick1Button4) || Input.GetKeyUp(KeyCode.Joystick1Button5)
+                || Input.GetKeyUp(KeyCode.Joystick2Button4) || Input.GetKeyUp(KeyCode.Joystick2Button5))
                 cc.Sprint(false);
 
             anim.SetFloat("sprint", cc.inputMagnitude);
