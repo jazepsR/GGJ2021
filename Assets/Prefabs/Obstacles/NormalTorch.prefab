@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e288ed847b594dd3b4d5a999c17ca3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  amount: 1.5
   intervalMs: 500
 --- !u!65 &5361047152163717015
 BoxCollider:

@@ -1,4 +1,3 @@
-using System;
 using UniRx;
 using UnityEngine;
 
@@ -16,6 +15,16 @@ namespace Interactables
             if (Input.GetKeyDown(KeyPress.InterActionButton))
             {
                 KeyPress.InterActionButtonPressed.OnNext(Unit.Default);
+            }
+            
+            if (Input.GetKeyDown(KeyPress.Menu))
+            {
+                KeyPress.InterActionButtonPressed.OnNext(Unit.Default);
+            }
+
+            if (Input.anyKey)
+            {
+                
             }
         }
     }
