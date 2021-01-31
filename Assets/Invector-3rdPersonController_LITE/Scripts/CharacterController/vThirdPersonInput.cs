@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UniRx;
+using GameSystem;
 
 namespace Invector.vCharacterController
 {
@@ -24,11 +26,27 @@ namespace Invector.vCharacterController
 
         #endregion
         [SerializeField] private Animator anim;
+        [SerializeField] private float deathDelay = 1f;
         private bool couldJump = false;
         protected virtual void Start()
         {
             InitilizeController();
             InitializeTpCamera();
+            GameEvents.PlayerDeath.Subscribe(dto => TriggerDeath()).AddTo(this);
+        }
+
+        private void TriggerDeath()
+        {
+            Debug.LogError("Player died!");
+            anim.SetTrigger("death");
+            StartCoroutine(DelayedDeath());
+        }
+
+        private IEnumerator DelayedDeath()
+        {
+            yield return new WaitForSeconds(deathDelay);
+            Debug.LogError("Player died 2!");
+            GameStateManager.PlayerDiedAnimationComplete();
         }
 
         protected virtual void FixedUpdate()
